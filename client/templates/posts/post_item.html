@@ -3,13 +3,12 @@
     <div class="post-content">
       <h3><a href="{{ url }}">{{ title }}</a> <span>{{domain}}</span></h3>
       <p>
-        submitted by {{author}}
-      <span>{{ whenSubmitted }}</span></p>
-      {{#if ownPost}}
-      <p>
-        <a href="{{pathFor 'postEdit'}}">Edit post</a>
+        by {{author}}
+      <span>{{ whenSubmitted }}</span>
+      <a href="{{pathFor 'postPage'}}">{{numComments}} comments</a>
       </p>
-      {{/if}}
+      
+      {{#if ownPost}}<p><a href="{{pathFor 'postEdit'}}">Edit post</a></p>{{/if}}
     </div>
     <a href="{{ pathFor 'postPage'}}" class="discuss btn btn-default">Discuss</a>
   </div>
