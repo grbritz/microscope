@@ -15,7 +15,8 @@ if (Posts.find().count() === 0) {
     url: 'http://sachagreif.com/introducing-telescope/',
     userId: john._id,
     author: john.profile.name,
-    submitted: new Date(now - 7 * 3600 * 1000)
+    submitted: new Date(now - 7 * 3600 * 1000),
+    numComments: 2
   });
 
   Comments.insert({
@@ -39,7 +40,8 @@ if (Posts.find().count() === 0) {
     url: 'http://meteor.com',
     userId: bill._id,
     author: bill.profile.name,
-    submitted: new Date(now - 10 * 3600 * 1000)
+    submitted: new Date(now - 10 * 3600 * 1000),
+    numComments: 0
   });
 
   Posts.insert({
@@ -47,7 +49,8 @@ if (Posts.find().count() === 0) {
     url: 'http://themeteorbook.com',
     userId: john._id,
     author: john.profile.name,
-    submitted: new Date(now - 12 * 3600 * 1000)
+    submitted: new Date(now - 12 * 3600 * 1000),
+    numComments: 0
   });
 }
 
