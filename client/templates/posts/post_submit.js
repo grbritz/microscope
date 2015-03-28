@@ -7,7 +7,13 @@ Template.postSubmit.events({
       title: $(e.target).find('[name=title]').val()
     }
 
-    submittedPost._id = Posts.insert(submittedPost);
-    Router.go('postPage', submittedPost);
+    // submittedPost._id = Posts.insert(submittedPost);
+    Meteor.call('postInsert', submittedPost, function(error, result){
+      if (error) {
+        return alert(error.reason);
+      }
+
+      Router.go('postPage', {_id: result._id});  
+    });
   }
 });
