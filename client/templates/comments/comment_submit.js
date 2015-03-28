@@ -12,17 +12,17 @@ Template.commentSubmit.helpers({
 });
 
 Template.commentSubmit.events({
-  'submit form': function(e) {
+  'submit form': function(e, template) {
     e.preventDefault();
 
     var $body = $(e.target).find("[name=body]");
     var comment = {
-      body: $body.val(),
-      postId: template.data._id
+      postId: template.data._id,
+      body: $body.val()
     };
 
     var errors = {};
-    if(! comment.body) {
+    if (!comment.body) {
       errors.body = "Please write something to comment";
       return Session.set('commentSubmitErrors', errors);
     }
