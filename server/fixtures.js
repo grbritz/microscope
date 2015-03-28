@@ -1,53 +1,53 @@
 if (Posts.find().count() === 0) {
   var now = new Date().getTime();
 
-  var graemeId = Meteor.users.insert({
-    profile: { name: 'Graeme Britz'}
+  var johnId = Meteor.users.insert({
+    profile: { name: 'John Johnson'}
   });
-  var graeme = Meteor.users.findOne(graemeId);
-  var viId = Meteor.users.insert({
-    profile: { name: 'Violeta Lio King'}
+  var john = Meteor.users.findOne(johnId);
+  var billId = Meteor.users.insert({
+    profile: { name: 'Bill Dufus'}
   });
-  var vi = Meteor.users.findOne(viId);
+  var bill = Meteor.users.findOne(billId);
 
   var telescopeId = Posts.insert({
     title: 'Introducing Telescope',
     url: 'http://sachagreif.com/introducing-telescope/',
-    userId: graeme._id,
-    author: graeme.profile.name,
+    userId: john._id,
+    author: john.profile.name,
     submitted: new Date(now - 7 * 3600 * 1000)
   });
 
   Comments.insert({
     postId : telescopeId,
-    userId : vi._id,
-    author: vi.profile.name,
+    userId : bill._id,
+    author: bill.profile.name,
     submitted: new Date(now - 5 * 3600 * 1000),
-    body: 'Interesting article Graeme!'
+    body: 'Interesting article john!'
   });
 
   Comments.insert({
     postId : telescopeId,
-    userId : graeme._id,
-    author: graeme.profile.name,
+    userId : john._id,
+    author: john.profile.name,
     submitted: new Date(now - 5 * 3600 * 1000),
-    body: 'Thanks Vi!'
+    body: 'Thanks bill!'
   });
 
   Posts.insert({
     title: 'Meteor',
     url: 'http://meteor.com',
-    userId: vi._id,
-    author: vi.profile.name,
+    userId: bill._id,
+    author: bill.profile.name,
     submitted: new Date(now - 10 * 3600 * 1000)
   });
 
   Posts.insert({
     title: 'The Meteor Book',
     url: 'http://themeteorbook.com',
-    userId: graeme._id,
-    author: graeme.profile.name,
-    submitted: new Date(now - 12 * 3600 * 1000);
+    userId: john._id,
+    author: john.profile.name,
+    submitted: new Date(now - 12 * 3600 * 1000)
   });
 }
 
