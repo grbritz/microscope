@@ -4,7 +4,7 @@
     <div class="post-content">
       <h3><a href="{{ url }}">{{ title }}</a> <span>{{domain}}</span></h3>
       <p>
-        {{numVotes}} Votes,
+        {{pluralize numVotes "Vote"}},
         by {{author}}
       <a href="{{pathFor 'postPage'}}">{{numComments}} comments</a>
       </p>
