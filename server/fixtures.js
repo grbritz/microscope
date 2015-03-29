@@ -52,5 +52,17 @@ if (Posts.find().count() === 0) {
     submitted: new Date(now - 12 * 3600 * 1000),
     numComments: 0
   });
+
+  // Lets get lots of posts
+  for (var i = 0; i < 20; i++) {
+    Posts.insert({
+      title: 'test post #' + i,
+      url: 'http://google.com/?q=test-' + i,
+      userId: john._id,
+      author: john.profile.name,
+      submitted: new Date(now - i * 3600 * 1000),
+      numComments: 0
+    });
+  }
 }
 
