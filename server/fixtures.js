@@ -16,7 +16,9 @@ if (Posts.find().count() === 0) {
     userId: john._id,
     author: john.profile.name,
     submitted: new Date(now - 7 * 3600 * 1000),
-    numComments: 2
+    numComments: 2,
+    upvoters: [],
+    numVotes: 0
   });
 
   Comments.insert({
@@ -41,7 +43,9 @@ if (Posts.find().count() === 0) {
     userId: bill._id,
     author: bill.profile.name,
     submitted: new Date(now - 10 * 3600 * 1000),
-    numComments: 0
+    numComments: 0,
+    upvoters: [],
+    numVotes: 0
   });
 
   Posts.insert({
@@ -50,7 +54,9 @@ if (Posts.find().count() === 0) {
     userId: john._id,
     author: john.profile.name,
     submitted: new Date(now - 12 * 3600 * 1000),
-    numComments: 0
+    numComments: 0,
+    upvoters: [],
+    numVotes: 0
   });
 
   // Lets get lots of posts
@@ -61,7 +67,9 @@ if (Posts.find().count() === 0) {
       userId: john._id,
       author: john.profile.name,
       submitted: new Date(now - i * 3600 * 1000),
-      numComments: 0
+      numComments: 0,
+      upvoters: [],
+      numVotes: 0
     });
   }
 }
